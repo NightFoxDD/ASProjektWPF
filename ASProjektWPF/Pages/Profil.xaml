@@ -1,0 +1,704 @@
+﻿<Page x:Class="ASProjektWPF.Pages.Profil"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ASProjektWPF.Pages"
+      mc:Ignorable="d" 
+      Background="#ececec" d:DesignWidth="800"
+      Title="Profil" Height="auto">
+
+    <ScrollViewer>
+        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,100,10,100">
+            <Border CornerRadius="5" Padding="10" Height="200px" Width="750" Margin="0,10,0,0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#e0e0e0" Offset="0.0"/>
+                        <GradientStop Color="#e0e0e0" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200px"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50px"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="35px"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Grid.RowSpan="7" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <Image x:Name="I_UserPfp" Width="100" Height="150" Margin="0,0,10,0"/>
+                        <Button x:Name="Btn_AddPfp" Content="dodaj" HorizontalAlignment="Left" Margin="0,5,0,0" Background="White" Foreground="#a4a4a4" Style="{StaticResource ProfileEditButtonTheme}" Click="Btn_AddPfp_Click"/>
+                    </StackPanel>
+                    <Label x:Name="Lbl_Name" Visibility="Collapsed" Content="Imię:" Grid.Column="1" Grid.Row="0"/>
+                    <TextBox x:Name="TxtB_Name" Grid.Column="1" Grid.Row="1" Style="{StaticResource ProfileTextBox}" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+                    <Label x:Name="Lbl_Surname" Visibility="Collapsed" Content="Nazwisko:" Grid.Column="2" Grid.Row="0"/>
+                    <TextBox x:Name="TxtB_Surname" Grid.Column="2" Grid.Row="1" Style="{StaticResource ProfileTextBox}" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+                    <Label x:Name="Lbl_CurrentOccupation" Visibility="Collapsed" Content="Aktualne stanowisko:" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="TxtB_CurrentOccupation" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource ProfileTextBox}" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+                    <Label x:Name="Lbl_Country" Visibility="Collapsed" Content="Państwo:" Grid.Column="1" Grid.Row="4"/>
+                    <ComboBox x:Name="CB_Country" Grid.Column="1" Grid.Row="5" Margin="0,0,10,0" SelectedIndex="0"/>
+                    <Label x:Name="Lbl_City" Visibility="Collapsed" Content="Miasto:" Grid.Column="2" Grid.Row="4"/>
+                    <TextBox x:Name="TxtB_City" Grid.Column="2" Grid.Row="5" Style="{StaticResource ProfileTextBox}" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+                    <Button x:Name="Btn_UserData_Edit" Content="Edytuj" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Background="White" Foreground="#a4a4a4" Style="{StaticResource ProfileEditButtonTheme}" Click="Btn_UserData_Edit_Click"/>
+                    <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                        <Button Visibility="Hidden" x:Name="Btn_UserData_Cancel"  Content="Anuluj" Margin="3" Background="White" Foreground="Gray" Style="{StaticResource ProfileCancelButtonTheme}" Click="Btn_UserData_Cancel_Click"/>
+                        <Button Visibility="Hidden" x:Name="Btn_UserData_Save" Content="Zapisz"  Margin="3" Background="#414141" Foreground="White" Style="{StaticResource ProfileSaveButtonTheme}" Click="Btn_UserData_Save_Click"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <!--llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll-->
+            <Border CornerRadius="5" Margin="0,10,0,0" Padding="0,0,0,10" Width="750">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#e0e0e0" Offset="0.0"/>
+                        <GradientStop Color="#e0e0e0" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel Orientation="Vertical">
+                    <Border CornerRadius="5,5,0,0" Background="#dadada" Padding="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="105*"/>
+                                <ColumnDefinition Width="280*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Dane kontaktowe" Padding="10" Grid.ColumnSpan="2"/>
+                            <Button x:Name="Btn_ContactData_Edit" Grid.Column="2" Content="Edytuj" Background="White" Foreground="#a4a4a4" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource ProfileEditButtonTheme}" Click="Btn_ContactData_Edit_Click" Margin="340,0,0,0"/>
+                        </Grid>
+                    </Border>
+                    <Border Padding="5,10,5,5">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="E-mail:"/>
+                                    <TextBox x:Name="TxtB_Email" Style="{StaticResource ProfileTextBox}" Width="100"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Telefon:"/>
+                                    <TextBox x:Name="TxtB_PhoneNumber" Style="{StaticResource ProfileTextBox}" Width="100"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Data urodzenia"/>
+                                <DatePicker x:Name="DP_User"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button x:Name="Btn_ContactData_Cancel" Visibility="Hidden" Content="Anuluj" Margin="3" Background="White" Foreground="Gray" Style="{StaticResource ProfileCancelButtonTheme}" Click="Btn_ContactData_Cancel_Click"/>
+                                <Button x:Name="Btn_ContactData_Save" Visibility="Hidden" Content="Zapisz" Margin="3" Background="#414141" Foreground="White" Style="{StaticResource ProfileSaveButtonTheme}" Click="Btn_ContactData_Save_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <!--llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll-->
+            <Border Margin="0,10,0,0" CornerRadius="5" Width="750">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#e0e0e0" Offset="0.0"/>
+                        <GradientStop Color="#e0e0e0" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel Orientation="Vertical">
+                    <Border Background="#dadada" CornerRadius="5,5,0,0" Padding="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Doświadczenie zawodowe" Padding="10"/>
+                            <Button x:Name="Btn_ExperienceWork_AddNew" Grid.Column="1" Content="dodaj nowy" HorizontalAlignment="Right" Background="White" Foreground="#a4a4a4" VerticalAlignment="Center" Style="{StaticResource ProfileEditButtonTheme}" Click="Btn_ExperienceWork_AddNew_Form_Click"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock x:Name="TxtB_ExperienceWork_Info" Text="Historia zatrudnienia to podstawowa informacja, na bazie której pracodawca oceni Twoje kompetencje. Koniecznie uzupełnij informacje o stanowiskach na których pracowałeś i opisz dokładnie wykonywane obowiązki." TextWrapping="Wrap" Padding="10"/>
+                    <Grid x:Name="G_ExperienceWork" Visibility="Collapsed">
+                        <Grid.Resources >
+                            <Style TargetType="Border">
+                                <Setter Property="Margin" Value="0,0,10,10"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0" Content="Stanowisko"/>
+                        <TextBox x:Name="TxtB_Position" Grid.Column="1" Grid.Row="0" Text="Stanowisko" Style="{StaticResource ProfileTextBox}" HorizontalAlignment="Stretch"/>
+                        <Label Grid.Column="0" Grid.Row="1" Content="Lokalizacja"/>
+                        <TextBox x:Name="TxtB_Lokalization" Grid.Column="1" Grid.Row="1" Text="Lokalizacja" Style="{StaticResource ProfileTextBox}" HorizontalAlignment="Stretch"/>
+                        <Label Grid.Column="0" Grid.Row="2" Content="Nazwa firmy"/>
+                        <TextBox x:Name="TxtB_Company" Grid.Column="1" Grid.Row="2" Text="Pracodawca" Style="{StaticResource ProfileTextBox}" HorizontalAlignment="Stretch"/>
+                        <Label Grid.Column="0" Grid.Row="3" Content="Okres"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="od"/>
+                                <DatePicker x:Name="DP_startPaymentDate"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                                <Label Content="Do"/>
+                                <DatePicker x:Name="DP_endPaymentDate"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <Label Grid.Column="0" Grid.Row="4" Content="Obowiącki"/>
+                        <TextBox x:Name="TxtB_Responsibilities" Grid.Column="1" Grid.Row="4" Height="100" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Margin="0,10,0,0">
+                            <Button x:Name="Btn_ExperienceWork_Cancel" Content="Annuluj"  Background="White" Foreground="Gray" Style="{StaticResource ProfileCancelButtonTheme}" Click="Btn_ExperienceWork_Cancel_Click"/>
+                            <Button x:Name="Btn_ExperienceWork_Save" Content="Dodaj" Background="#414141" Foreground="White" Style="{StaticResource ProfileSaveButtonTheme}" Click="Btn_ExperienceWork_AddNew_Click"/>
+                        </StackPanel>
+                    </Grid>
+                    <ListView x:Name="LV_UserExperience" Background="Transparent" BorderThickness="0">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="IsHitTestVisible" Value="True"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListViewItem">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                                <ContentPresenter/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#bfbfbf" Background="#dadada" BorderThickness="1" Margin="4" CornerRadius="5">
+                                    <StackPanel Margin="10">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="100"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                                <TextBlock Text="{Binding Position}" Foreground="Black" />
+                                                <TextBlock Text="{Binding StartPayment,StringFormat=' / {0:MMMM yyyy} - ', ConverterCulture='pl-PL'}" Foreground="Gray"/>
+                                                <TextBlock Foreground="Gray">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Setter Property="Text" Value="{Binding EndPayment, StringFormat='{}{0:MMMM yyyy}', ConverterCulture='pl-PL'}"/>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding EndPayment,StringFormat='{}{0:}'}" Value="{x:Null}">
+                                                                    <Setter Property="Text" Value="Obecnie"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Button Content="Usuń" HorizontalAlignment="Right" Background="White" Foreground="Red" Margin="0,0,10,0" Style="{StaticResource ProfileDeleteButtonTheme}" Click="Btn_ExperienceWork_Delete_Click" CommandParameter="{Binding .}"/>
+                                                <Button Content="Edytuj" HorizontalAlignment="Right" Background="White" Foreground="Gray" Style="{StaticResource ProfileEditButtonTheme}" Click="Btn_ExperienceWork_EditAccExperience_Click" CommandParameter="{Binding .}"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Company}"/>
+                                                <TextBlock Text="{Binding Localization, StringFormat=' ({0})'}" Foreground="Gray"/>
+                                            </StackPanel>
+                                            <TextBlock Text="{Binding Responsibilities}" Grid.ColumnSpan="3" Grid.Row="2"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </Border>
+            <!--llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll-->
+            <Border Margin="0,10,0,0" CornerRadius="5" Width="750">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#e0e0e0" Offset="0.0"/>
+                        <GradientStop Color="#e0e0e0" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel Orientation="Vertical">
+                    <Border Background="#dadada" CornerRadius="5,5,0,0" Padding="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Wykształcenie"/>
+                            <Button x:Name="Btn_Education_AddNewForm" Grid.Column="1" Content="dodaj nowy" HorizontalAlignment="Right" Background="White" Foreground="#a4a4a4" VerticalAlignment="Center" Style="{StaticResource ProfileEditButtonTheme}" Click="Btn_Education_AddNewForm_Click"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock x:Name="TxtB_Education_Info" Text="Historia zatrudnienia to podstawowa informacja, na bazie której pracodawca oceni Twoje kompetencje. Koniecznie uzupełnij informacje o stanowiskach na których pracowałeś i opisz dokładnie wykonywane obowiązki." TextWrapping="Wrap" Padding="10"/>
+                    <Grid x:Name="G_Education" Visibility="Collapsed">
+                        <Grid.Resources >
+                            <Style TargetType="Border">
+                                <Setter Property="Margin" Value="0,0,10,10" />
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0" Content="Nazwa szkoły"/>
+                        <TextBox x:Name="TxtB_Education_ShoolName" Grid.Column="1" Grid.Row="0" Style="{StaticResource ProfileTextBox}" HorizontalAlignment="Stretch"/>
+                        <Label Grid.Column="0" Grid.Row="1" Content="Poziom wykrztałcenia"/>
+                        <ComboBox x:Name="CB_Education_Level" SelectedIndex="0" Grid.Column="1" Grid.Row="1">
+                            <ComboBoxItem>Podstawowe</ComboBoxItem>
+                            <ComboBoxItem>Wyższe</ComboBoxItem>
+                        </ComboBox>
+                        <Label Grid.Column="0" Grid.Row="2" Content="Kierunek"/>
+                        <TextBox x:Name="TxtB_Education_Direction" Grid.Column="1" Grid.Row="2" Style="{StaticResource ProfileTextBox}" HorizontalAlignment="Stretch"/>
+                        <Label Grid.Column="0" Grid.Row="3" Content="Okres"/>
+                        <Grid Grid.Column="1" Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="od"/>
+                                <DatePicker x:Name="DP_Education_StartPeriod"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Grid.Column="1">
+                                <Label Content="Do"/>
+                                <DatePicker x:Name="DP_Education_EndPeriod"/>
+                            </StackPanel>
+                        </Grid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="0,10,0,0">
+                            <Button x:Name="Btn_Education_Cancel" Content="Annuluj"  Background="White" Foreground="Gray" Style="{StaticResource ProfileCancelButtonTheme}" Click="Btn_Education_Cancel_Click"/>
+                            <Button x:Name="Btn_Education_AddNew" Content="Dodaj" Background="#414141" Foreground="White" Style="{StaticResource ProfileSaveButtonTheme}" Click="Btn_Experience_AddNew_Click"/>
+                        </StackPanel>
+                    </Grid>
+                    <ListView x:Name="Lv_UserEducationList" Background="Transparent" BorderThickness="0">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="IsHitTestVisible" Value="True"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListViewItem">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                                <ContentPresenter/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border  BorderBrush="#bfbfbf" Background="#dadada" BorderThickness="1" Margin="4" CornerRadius="5">
+                                    <StackPanel Margin="10">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="100"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                                <TextBlock Text="{Binding ShoolName}" Foreground="Black" />
+                                                <TextBlock Text="{Binding StartPeriod,StringFormat=' / {0:MMMM yyyy} - ', ConverterCulture='pl-PL'}" Foreground="Gray"/>
+                                                <TextBlock Foreground="Gray">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Setter Property="Text" Value="{Binding EndPeriod, StringFormat='{}{0:MMMM yyyy}', ConverterCulture='pl-PL'}"/>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding EndPeriod,StringFormat='{}{0:}'}" Value="{x:Null}">
+                                                                    <Setter Property="Text" Value="Obecnie"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Button Content="Usuń" HorizontalAlignment="Right" Background="White" Foreground="Red" Margin="0,0,10,0" Style="{StaticResource ProfileDeleteButtonTheme}" Click="Btn_Education_Delete_Click" CommandParameter="{Binding .}"/>
+                                                <Button Content="Edytuj" HorizontalAlignment="Right" Background="White" Foreground="Gray" Style="{StaticResource ProfileEditButtonTheme}" Click="Btn_Education_Edit_Click" CommandParameter="{Binding .}"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Direction}"/>
+                                                <TextBlock Text="{Binding Level, StringFormat=' ({0})'}" Foreground="Gray"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </Border>
+            <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
+            <Border Margin="0,10,0,0" CornerRadius="5" Width="750">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#e0e0e0" Offset="0.0"/>
+                        <GradientStop Color="#e0e0e0" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel>
+                    <Border CornerRadius="5,5,0,0" Background="#dadada" Padding="5">
+                        <Grid>
+                            <Grid.Resources >
+                                <Style TargetType="Border">
+                                    <Setter Property="Margin" Value="0,0,5,5" />
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Języki"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                                <Button x:Name="Btn_Language_Edit" Content="Dodaj" HorizontalAlignment="Right" Background="White" Foreground="#a4a4a4" VerticalAlignment="Center" Style="{StaticResource ProfileEditButtonTheme}" Click="Btn_Language_AddForm_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <Border Padding="5">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock x:Name="Lb_LanguageInfo" TextWrapping="Wrap" Text="Określ jakie języki znasz najlepiej i wskaż poziom ich znajomości. Pamiętaj, że możesz zostać poproszony o zaprezentowanie znajomości języka na rozmowie kwalifikacyjnej."/>
+                            <StackPanel x:Name="SP_Language_Add" Visibility="Collapsed">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="65"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <ComboBox x:Name="CB_LanguageSelected" SelectedIndex="0">
+                                        <ComboBoxItem>Polski</ComboBoxItem>
+                                        <ComboBoxItem>Angielski</ComboBoxItem>
+                                    </ComboBox>
+                                    <ComboBox x:Name="CB_LanguageLevel" Grid.Column="1" SelectedIndex="0">
+                                        <ComboBoxItem>podstawowy</ComboBoxItem>
+                                        <ComboBoxItem>zaawansowany</ComboBoxItem>
+                                        <ComboBoxItem>ojczysty</ComboBoxItem>
+                                    </ComboBox>
+                                </Grid>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                                    <Button x:Name="Btn_Language_Cancel" Content="Annuluj" HorizontalAlignment="Right" Background="White" Foreground="gray" VerticalAlignment="Center" Style="{StaticResource ProfileCancelButtonTheme}" Click="Btn_Language_Cancel_Click"/>
+                                    <Button x:Name="Btn_Language_Add" Content="Dodaj" HorizontalAlignment="Right" Background="#414141" Foreground="White" VerticalAlignment="Center" Style="{StaticResource ProfileSaveButtonTheme}" Click="Btn_Language_Add_Click"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <ListView x:Name="LV_UserLeagueList" Background="Transparent" BorderThickness="0">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="IsHitTestVisible" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ListViewItem">
+                                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                                        <ContentPresenter/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border  BorderBrush="#bfbfbf" Background="#dadada" BorderThickness="1" Margin="4" CornerRadius="5">
+                                            <StackPanel Margin="10">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="100"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                                        <TextBlock Text="{Binding Name, StringFormat='{}{0}:'}" Foreground="Black" />
+                                                        <TextBlock Text="{Binding Level}" Foreground="Black" />
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                        <Button Content="Usuń" HorizontalAlignment="Right" Background="White" Foreground="Red" Margin="0,0,10,0" Style="{StaticResource ProfileDeleteButtonTheme}" Click="Btn_Language_Delete_Click" CommandParameter="{Binding .}"/>
+                                                        <Button Content="Edytuj" HorizontalAlignment="Right" Background="White" Foreground="Gray" Style="{StaticResource ProfileEditButtonTheme}" Click="Btn_Language_Edit_Click" CommandParameter="{Binding .}"/>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
+            <Border Margin="0,10,0,0" CornerRadius="5" Width="750">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#e0e0e0" Offset="0.0"/>
+                        <GradientStop Color="#e0e0e0" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel>
+                    <Border CornerRadius="5,5,0,0" Background="#dadada" Padding="5">
+                        <Label Content="Umiejętności"/>
+                    </Border>
+                    <Border Padding="5">
+                        <StackPanel>
+                            <TextBlock Text="Wpisz swoje umiejętności pojedynczo zatwierdzając przyciskiem 'Dodaj':" TextWrapping="Wrap"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBox x:Name="TxtB_SkillName" Text="" Style="{StaticResource  ProfileTextBox}"/>
+                                <Button Grid.Column="1" Content="Dodaj" Foreground="White" Background="#414141" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource ProfileSaveButtonTheme}" Click="Btn_UserSkillsAdd_Click"/>
+                            </Grid>
+                            <WrapPanel Background="Transparent">
+                                <ItemsControl x:Name="IC_UserSkills">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel Orientation="Horizontal"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="50"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Border BorderBrush="Black" BorderThickness="1">
+                                                    <TextBlock Text="{Binding Name}" Padding="5"/>
+                                                </Border>
+                                                <Button x:Name="Btn_Skill_Delete" Grid.Column="1" Content="Usuń" Background="White" Foreground="Red" Margin="0,0,10,0" Style="{StaticResource ProfileDeleteButtonTheme}" Click="Btn_Skill_Delete_Click" CommandParameter="{Binding .}"/>
+                                            </Grid>
+
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
+            <Border Margin="0,10,0,0" CornerRadius="5" Width="750">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#e0e0e0" Offset="0.0"/>
+                        <GradientStop Color="#e0e0e0" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel>
+                    <Border CornerRadius="5,5,0,0" Background="#dadada" Padding="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Linki"/>
+                            <Button x:Name="Btn_Link_AddForm" Grid.Column="1" Content="Dodaj nowy" HorizontalAlignment="Right" Background="White" Foreground="#a4a4a4" VerticalAlignment="Center" Style="{StaticResource ProfileEditButtonTheme}" Click="Btn_Link_AddForm_Click"/>
+                        </Grid>
+                    </Border>
+                    <Border Padding="5">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock x:Name="Tb_Link_Info" Text="Dbasz o swój wizerunek w sieci? Chcesz się pochwalić ciekawymi projektami? Dodaj linki do swojej strony, portfolio, wizytówki online." TextWrapping="Wrap"/>
+                            <Grid x:Name="G_AddLink" Visibility="Collapsed">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Content="Adres URL"/>
+                                <TextBox x:Name="TxtB_URL" Grid.Column="1" Text="Adres URL" Style="{StaticResource ProfileTextBox}"/>
+                                <Label Grid.Row="1" Content="Typ linku"/>
+                                <ComboBox x:Name="CB_Type" Grid.Column="1" Grid.Row="1" SelectedIndex="0">
+                                    <ComboBoxItem>Facebook</ComboBoxItem>
+                                    <ComboBoxItem>GitHub</ComboBoxItem>
+                                </ComboBox>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1" >
+                                    <Button x:Name="Btn_Link_Cancel" Content="Annuluj"  Background="White" Foreground="Gray" Style="{StaticResource ProfileCancelButtonTheme}" Click="Btn_Link_Cancel_Click"/>
+                                    <Button x:Name="Btn_Link_Add" Content="Zapisz" Background="#414141" Foreground="White" Style="{StaticResource ProfileSaveButtonTheme}" Click="Btn_Link_AddNew_Click"/>
+                                </StackPanel>
+                            </Grid>
+                            <ListView x:Name="Lv_UserLinknList" Background="Transparent" BorderThickness="0">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="IsHitTestVisible" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ListViewItem">
+                                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                                        <ContentPresenter/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border  BorderBrush="#bfbfbf" Background="#dadada" BorderThickness="1" Margin="4" CornerRadius="5">
+                                            <StackPanel Margin="10">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="100"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                                        <TextBlock Text="{Binding Type, StringFormat='{}{0}:'}" Foreground="Black" />
+                                                        <TextBlock Text="{Binding Name}" Foreground="Black" />
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                        <Button Content="Usuń" HorizontalAlignment="Right" Background="White" Foreground="Red" Margin="0,0,10,0" Style="{StaticResource ProfileDeleteButtonTheme}" Click="Btn_Link_Delete_Click" CommandParameter="{Binding .}"/>
+                                                        <Button Content="Edytuj" HorizontalAlignment="Right" Background="White" Foreground="Gray" Style="{StaticResource ProfileEditButtonTheme}" Click="Btn_Link_Edit_Click" CommandParameter="{Binding .}"/>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <Border Margin="0,10,0,0" CornerRadius="5" Width="750">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#e0e0e0" Offset="0.0"/>
+                        <GradientStop Color="#e0e0e0" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel>
+                    <Border CornerRadius="5,5,0,0" Background="#dadada" Padding="5">
+                        <Label Content="Twoje zaaplikowania"/>
+                    </Border>
+                    <Grid x:Name="G_ApplicationInfo">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Nazwa:" TextWrapping="Wrap" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="10" FontSize="15"/>
+
+                        <TextBlock Text="Pozycja: " TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="2" FontSize="15"/>
+                    </Grid>
+                    <Border Padding="5">
+                        <StackPanel>
+                            <TextBlock x:Name="TxtB_Application_Info" Text="Jeszcze nie zaaplikowałeś się do żednej pracy" TextWrapping="Wrap"/>
+                            <ListView x:Name="LV_UserApplications" Background="Transparent" BorderThickness="0">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="IsHitTestVisible" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ListViewItem">
+                                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                                        <ContentPresenter/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="Black" BorderThickness="0,1,0,0">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="150"/>
+                                                        <ColumnDefinition Width="100"/>
+                                                        <ColumnDefinition Width="100"/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center" TextWrapping="Wrap" Grid.ColumnSpan="2" Margin="10"/>
+                                                    <Image Source="{Binding CompanyImage}" VerticalAlignment="Center"  Grid.Column="1" Height="50"/>
+                                                    <TextBlock Text="{Binding PositionName}" VerticalAlignment="Center"  TextWrapping="Wrap" Grid.Column="2" FontSize="15"/>
+                                                    <Button Grid.Column="3" Margin="10" Style="{StaticResource SearchButton}" VerticalAlignment="Center" Content="Zobacz" CommandParameter="{Binding .}" Click="Btn_GoToAnnouncment_Click"/>
+                                                </Grid>
+                                                <Button Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Cofnij aplikowanie" Style="{StaticResource ProfileDeleteButtonTheme}" Background="White" Foreground="Red" CommandParameter="{Binding .}" Click="Btn_DeleteApplication"/>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                        
+                    </Border>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
